@@ -1,0 +1,7 @@
+item,count
+Raw rows,14041
+Valid SadOrHopeless rows,13845
+Missing/invalid SadOrHopeless rows,196
+Valid CurrentCigaretteUse rows,13323
+Missing/invalid CurrentCigaretteUse rows,718
+Rows valid for both variables,13174

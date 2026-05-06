@@ -1,0 +1,9 @@
+Final Interpretation - Cycle 3 Question 8
+
+The proportion of current cigarette use was higher among students who felt sad or hopeless (27.6%) than among students who did not feel sad or hopeless (16.2%). The estimated difference was 0.1143, or about 11.43 percentage points.
+
+The 95% confidence interval for the difference was [0.0983, 0.1302], which is entirely above 0. This suggests that the proportion of current cigarette use is higher in the SadOrHopeless group.
+
+The two-proportion z-test gave z = 15.0536 and p-value < 0.0001. Since the p-value is less than 0.05, we reject the null hypothesis. There is strong statistical evidence that the proportion of current cigarette use differs between students who felt sad or hopeless and those who did not.
+
+Because the YRBS data are observational survey data, this result should be interpreted as an association, not evidence that sad or hopeless feelings cause current cigarette use.
