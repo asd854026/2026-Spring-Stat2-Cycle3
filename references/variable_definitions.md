@@ -1,35 +1,43 @@
 # Variable Definitions - Cycle 3 Question 8
 
 ## Research Question
-
 Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?
 
-## Group Variable
+## Group Variable: SadOrHopeless
+- Role: group variable / explanatory grouping variable
+- Original variable name: `SadOrHopeless`
+- Group 1: students who felt sad or hopeless (`sad_binary = 1`)
+- Group 0: students who did not feel sad or hopeless (`sad_binary = 0`)
 
-`SadOrHopeless`
+## Response Variable: CurrentCigaretteUse
+- Role in this project: response variable
+- Original variable name: `CurrentCigaretteUse`
+- What it measures: number of days the student smoked cigarettes during the past 30 days.
 
-- Original code `1`: Yes, the student felt sad or hopeless.
-- Original code `2`: No, the student did not feel sad or hopeless.
-- Missing or invalid values are excluded from the analysis.
+### Valid codes used
+- `1` = 0 days
+- `2` = 1 or 2 days
+- `3` = 3 to 5 days
+- `4` = 6 to 9 days
+- `5` = 10 to 19 days
+- `6` = 20 to 29 days
+- `7` = all 30 days
 
-For the analysis:
+### Main recoding rule for inference
+- `1` -> `smoker_binary = 0` = non-smoker in the past 30 days
+- `2` to `7` -> `smoker_binary = 1` = reported smoking on at least 1 day in the past 30 days
 
-- `1` = exposed group / yes group / SadOrHopeless Yes
-- `0` = comparison group / no group / SadOrHopeless No
+### Additional grouped version for exploratory EDA only
+- `1` -> No current smoking (0 days)
+- `2`, `3` -> Light (1-5 days)
+- `4`, `5` -> Moderate (6-19 days)
+- `6`, `7` -> Frequent (20-30 days)
 
-## Response Variable
+The grouped version is used only to describe the smoking frequency pattern. The main two-sample inference still uses the binary response `smoker_binary`.
 
-`CurrentCigaretteUse`
+## Difference Definition
+The estimated difference is defined as:
 
-- Original code `1`: 0 days of cigarette use in the past 30 days.
-- Original codes `2-7`: at least 1 day of cigarette use in the past 30 days.
-- Missing or invalid values are excluded from the analysis.
+`p_hat_yes - p_hat_no`
 
-For the analysis:
-
-- `1` = current cigarette use
-- `0` = no current cigarette use
-
-## Final Valid Sample Size
-
-After excluding rows with missing or invalid values in either variable, the final valid sample size is **13,174**.
+This means a positive difference indicates that the Sad/Hopeless Yes group has a higher current cigarette use proportion.

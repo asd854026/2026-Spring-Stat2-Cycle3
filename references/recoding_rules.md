@@ -1,23 +1,34 @@
 # Recoding Rules - Cycle 3 Question 8
 
-This project follows the required Cycle 3 recoding rules.
-
 ## SadOrHopeless
+Required binary coding:
 
-```python
-SadOrHopeless_binary = 1 if SadOrHopeless == 1
-SadOrHopeless_binary = 0 if SadOrHopeless == 2
-```
+- Original code 1 -> 1 = felt sad or hopeless
+- Original code 2 -> 0 = did not feel sad or hopeless
+- Missing or other invalid values -> excluded from final analysis
 
 ## CurrentCigaretteUse
+CurrentCigaretteUse measures the number of days the student smoked cigarettes during the past 30 days.
 
-```python
-CurrentCigaretteUse_binary = 0 if CurrentCigaretteUse == 1
-CurrentCigaretteUse_binary = 1 if CurrentCigaretteUse in [2, 3, 4, 5, 6, 7]
-```
+### Original valid codes
+- 1 = 0 days
+- 2 = 1 or 2 days
+- 3 = 3 to 5 days
+- 4 = 6 to 9 days
+- 5 = 10 to 19 days
+- 6 = 20 to 29 days
+- 7 = all 30 days
 
-## Missing / Invalid Values
+### Binary recoding for two-proportion inference
+- Original code 1 -> smoker_binary = 0 = no current smoking in the past 30 days
+- Original codes 2-7 -> smoker_binary = 1 = current cigarette use, at least 1 day in the past 30 days
+- Missing or other invalid values -> excluded from final analysis
 
-Rows with missing or invalid values in either variable are removed before inference.
+### Grouped version for exploratory EDA
+- 1 -> No current smoking (0 days)
+- 2-3 -> Light (1-5 days)
+- 4-5 -> Moderate (6-19 days)
+- 6-7 -> Frequent (20-30 days)
 
-This avoids treating survey category codes as continuous numerical values.
+## Final Analysis Sample
+Rows are included only if both the group variable and response variable have valid recoded values.

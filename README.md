@@ -1,72 +1,82 @@
-# Project Cycle 3 - Two-Sample Inference Demo / Formal Draft
+# Project Cycle 3 - Two-Sample Inference
 
 ## Group Information
-
 - Group number: 27
-- Member names: 112370216蘇榮盛, 111370138吳丞宥
-- Dataset: `YRBS_2007.csv`, `yrbs_2007_cycle3_q8_cleaned.csv`
-- Selected question: **Question 8 - Sad or Hopeless Feeling and Current Cigarette Use**
+- Member names: 112370216蘇榮盛,111370138吳丞宥
 
-## Research Question
+## Selected Research Question
+**Question 8: Sad or Hopeless Feeling and Current Cigarette Use**
 
-**Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?**
+Research question: **Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?**
 
 ## Variables
 
-- Group variable: `SadOrHopeless`
-  - `1` = felt sad or hopeless for two or more weeks in a row
-  - `2` = did not feel sad or hopeless
-- Response variable: `CurrentCigaretteUse`
-  - success = codes `2-7` = currently used cigarettes on at least 1 day
-  - failure = code `1` = did not currently use cigarettes
+### Group Variable
+- Original variable: `SadOrHopeless`
+- Recoded variable: `sad_binary`
+- `1` = felt sad or hopeless
+- `0` = did not feel sad or hopeless
 
-## Method Used
+### Response Variable
+- Original variable: `CurrentCigaretteUse`
+- What it measures: number of days the student smoked cigarettes during the past 30 days.
+- Recoded binary response: `smoker_binary`
+- `0` = code 1, no smoking in the past 30 days
+- `1` = codes 2-7, smoked cigarettes on at least 1 day in the past 30 days
 
-Because the response variable is binary, this project uses a **two-proportion z-test** and a **95% confidence interval for the difference in proportions**.
+### EDA-only Grouped Response Detail
+A grouped version of `CurrentCigaretteUse` is also created for exploratory visualization only:
 
-Difference is defined as:
+- code 1 = No current smoking (0 days)
+- codes 2-3 = Light (1-5 days)
+- codes 4-5 = Moderate (6-19 days)
+- codes 6-7 = Frequent (20-30 days)
 
-```text
-p_yes - p_no
-```
+## Method
+Because the main response variable is binary, this project uses a **two-proportion z-test** and a **95% confidence interval for the difference in proportions**.
+
+The difference is defined as:
+
+`p_hat_yes - p_hat_no`
 
 where:
+- `p_hat_yes` = current cigarette use proportion among students who felt sad or hopeless
+- `p_hat_no` = current cigarette use proportion among students who did not feel sad or hopeless
 
-- `p_yes` = proportion of current cigarette use among students who felt sad or hopeless
-- `p_no` = proportion of current cigarette use among students who did not feel sad or hopeless
-
-## Main Results
-
-| group                        |   sample_size |   current_cigarette_users |   proportion | proportion_percent   |
-|:-----------------------------|--------------:|--------------------------:|-------------:|:---------------------|
-| Felt sad or hopeless         |          3854 |                      1064 |       0.2761 | 27.61%               |
-| Did not feel sad or hopeless |          9320 |                      1508 |       0.1618 | 16.18%               |
-
-## Statistical Output
-
-- Estimated difference: **0.1143** = **11.43 percentage points**
-- 95% CI for difference: **[0.0983, 0.1302]** = **[9.83, 13.02] percentage points**
-- Test statistic: **z = 15.0536**
+## Main Result
+- Valid analysis sample size: **13,174**
+- Sad/Hopeless Yes: **27.6%** current cigarette use
+- Sad/Hopeless No: **16.2%** current cigarette use
+- Estimated difference: **11.43 percentage points**
+- 95% CI: **[9.83, 13.02] percentage points**
+- z statistic: **15.0536**
 - p-value: **< 0.0001**
-- Significance level: **alpha = 0.05**
-- Decision: **Reject H0**
 
 ## Short Final Conclusion
+At alpha = 0.05, we reject the null hypothesis. Students who felt sad or hopeless had a statistically significantly higher proportion of current cigarette use than students who did not. This is an association, not evidence of causation.
 
-The sample proportion of current cigarette use was higher among students who felt sad or hopeless (27.6%) than among students who did not (16.2%). The estimated difference was about **11.43 percentage points**. Since the p-value was **< 0.0001**, we reject the null hypothesis at the 0.05 level. There is strong evidence that the proportion of current cigarette use differs between the two groups. This is an association only and should not be interpreted as a causal relationship.
+## Notebook Structure
+This project follows a Cycle 2-style notebook workflow:
+
+1. `01_DataCheck.ipynb` - load data, check variables, document detailed CurrentCigaretteUse coding, recode variables, save cleaned data.
+2. `02_EDA.ipynb` - descriptive summaries and group comparison visuals.
+3. `03_Inference.ipynb` - two-proportion z-test, 95% CI, and inferential result plot.
+4. `04_Interpretation.ipynb` - final interpretation in context.
 
 ## Project Structure
-
 ```text
-project-cycle-3-q8-real/
+project-cycle-3/
   README.md
   data/
     raw/
       YRBS_2007.csv
     processed/
-      yrbs_2007_cycle3_q8_cleaned.csv
+      yrbs_cycle3_q8_cleaned.csv
   notebooks/
-    01_cycle3_q8_analysis.ipynb
+    01_DataCheck.ipynb
+    02_EDA.ipynb
+    03_Inference.ipynb
+    04_Interpretation.ipynb
   outputs/
     figures/
     tables/

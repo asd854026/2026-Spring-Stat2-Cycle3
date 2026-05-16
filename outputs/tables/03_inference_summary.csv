@@ -1,0 +1,2 @@
+method,comparison,n_yes,x_yes,p_yes,n_no,x_no,p_no,difference_pp,ci_95_pp,z_statistic,p_value,alpha,decision
+Two-proportion z-test,p_yes - p_no,3854,1064,0.2761,9320,1508,0.1618,11.43,"[9.83, 13.02]",15.0536,< 0.0001,0.05,Reject H0
