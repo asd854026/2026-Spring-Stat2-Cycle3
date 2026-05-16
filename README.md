@@ -37,11 +37,11 @@ Because the main response variable is binary, this project uses a **two-proporti
 
 The difference is defined as:
 
-`p_hat_yes - p_hat_no`
+`p_yes - p_no`
 
 where:
-- `p_hat_yes` = current cigarette use proportion among students who felt sad or hopeless
-- `p_hat_no` = current cigarette use proportion among students who did not feel sad or hopeless
+- `p_yes` = current cigarette use proportion among students who felt sad or hopeless
+- `p_no` = current cigarette use proportion among students who did not feel sad or hopeless
 
 ## Main Result
 - Valid analysis sample size: **13,174**
