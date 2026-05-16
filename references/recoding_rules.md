@@ -1,4 +1,4 @@
-# Recoding Rules - Cycle 3 Question 8
+# Recoding Rules
 
 ## SadOrHopeless
 Required binary coding:
@@ -30,5 +30,6 @@ CurrentCigaretteUse measures the number of days the student smoked cigarettes du
 - 4-5 -> Moderate (6-19 days)
 - 6-7 -> Frequent (20-30 days)
 
+For the smokers-only stacked bar chart, the Non-smoker group is excluded so that the chart focuses only on the frequency composition among current smokers.
 ## Final Analysis Sample
 Rows are included only if both the group variable and response variable have valid recoded values.
