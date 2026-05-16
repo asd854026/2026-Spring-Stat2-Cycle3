@@ -56,8 +56,6 @@ where:
 At alpha = 0.05, we reject the null hypothesis. Students who felt sad or hopeless had a statistically significantly higher proportion of current cigarette use than students who did not. This is an association, not evidence of causation.
 
 ## Notebook Structure
-This project follows a Cycle 2-style notebook workflow:
-
 1. `01_DataCheck.ipynb` - load data, check variables, document detailed CurrentCigaretteUse coding, recode variables, save cleaned data.
 2. `02_EDA.ipynb` - descriptive summaries and group comparison visuals.
 3. `03_Inference.ipynb` - two-proportion z-test, 95% CI, and inferential result plot.
