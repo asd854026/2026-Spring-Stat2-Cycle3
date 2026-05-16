@@ -72,7 +72,5 @@ project-cycle-3-q8-real/
     tables/
     summary/
   report/
-    cycle3_q8_one_slide_summary.pptx
-    cycle3_q8_one_slide_summary.pdf
   references/
 ```
