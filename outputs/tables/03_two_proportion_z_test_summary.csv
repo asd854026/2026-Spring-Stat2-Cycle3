@@ -1,0 +1,9 @@
+metric,value
+Null hypothesis,p_yes = p_no
+Alternative hypothesis,p_yes ≠ p_no
+Pooled proportion,0.1952
+Standard error for test,0.0076
+z statistic,15.0536
+p-value,< 0.0001
+Alpha level,0.05
+Decision,Reject H0

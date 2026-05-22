@@ -2,7 +2,7 @@
 
 ## Group Information
 - Group number: 27
-- Member names: 112370216蘇榮盛,111370138吳丞宥
+- Member names: 112370216蘇榮盛, 111370138吳丞宥
 
 ## Selected Research Question
 **Question 8: Sad or Hopeless Feeling and Current Cigarette Use**
@@ -27,7 +27,7 @@ Research question: **Is the proportion of current cigarette use different betwee
 ### EDA-only Grouped Response Detail
 A grouped version of `CurrentCigaretteUse` is also created for exploratory visualization only:
 
-- code 1 = No current smoking (0 days)
+- code 1 = Non-smoker (0 days)
 - codes 2-3 = Light (1-5 days)
 - codes 4-5 = Moderate (6-19 days)
 - codes 6-7 = Frequent (20-30 days)
@@ -45,34 +45,54 @@ where:
 
 ## Main Result
 - Valid analysis sample size: **13,174**
-- Sad/Hopeless Yes: **27.6%** current cigarette use
-- Sad/Hopeless No: **16.2%** current cigarette use
-- Estimated difference: **11.43 percentage points**
-- 95% CI: **[9.83, 13.02] percentage points**
+- Sad/Hopeless Yes: **0.2761** current cigarette use proportion
+- Sad/Hopeless No: **0.1618** current cigarette use proportion
+- Estimated difference: **0.1143** using `p_yes - p_no`
+- 95% CI for the difference: **[0.0983, 0.1302]**
 - z statistic: **15.0536**
 - p-value: **< 0.0001**
 
 ## Short Final Conclusion
-At alpha = 0.05, we reject the null hypothesis. Students who felt sad or hopeless had a statistically significantly higher proportion of current cigarette use than students who did not. This is an association, not evidence of causation.
+At alpha = 0.05, we reject the null hypothesis. Students who felt sad or hopeless had a statistically significantly higher proportion of current cigarette use than students who did not. This result should be interpreted as an association, not evidence of causation.
+
+## Additional EDA
+In addition to the main Q8 analysis, this project includes an exploratory health-risk behavior count.
+
+The additional EDA uses three binary health-risk indicators:
+
+- `smoker_binary` = current cigarette use
+- `alcohol_binary` = current alcohol use
+- `marijuana_binary` = current marijuana use
+
+The health-risk behavior count is defined as:
+
+`health_risk_behavior_count = smoker_binary + alcohol_binary + marijuana_binary`
+
+The count ranges from 0 to 3. It is calculated only when all three health-risk indicators are valid.
+
+This additional EDA is exploratory and is not part of the main two-proportion inference test.
 
 ## Notebook Structure
-1. `01_DataCheck.ipynb` - load data, check variables, document detailed CurrentCigaretteUse coding, recode variables, save cleaned data.
-2. `02_EDA.ipynb` - descriptive summaries and group comparison visuals.
-3. `03_Inference.ipynb` - two-proportion z-test, 95% CI, and inferential result plot.
-4. `04_Interpretation.ipynb` - final interpretation in context.
+1. `01_DataCheck.ipynb` - load raw data, check variables, recode variables, create processed-only datasets.
+2. `02_EDA_Main.ipynb` - descriptive summaries and main Q8 visualizations.
+3. `02_EDA_Additional.ipynb` - exploratory EDA for health-risk behavior count.
+4. `03_Inference.ipynb` - two-proportion z-test, 95% CI, and inference summary.
+5. `04_Interpretation.ipynb` - final interpretation in context.
 
 ## Project Structure
 ```text
-project-cycle-3/
+2026-Spring-Stat2-Cycle3/
   README.md
   data/
     raw/
       YRBS_2007.csv
     processed/
-      yrbs_cycle3_q8_cleaned.csv
+      yrbs_cycle3_q8_processed_only.csv
+      yrbs_cycle3_health_risk_processed_only.csv
   notebooks/
     01_DataCheck.ipynb
-    02_EDA.ipynb
+    02_EDA_Main.ipynb
+    02_EDA_Additional.ipynb
     03_Inference.ipynb
     04_Interpretation.ipynb
   outputs/
@@ -81,4 +101,7 @@ project-cycle-3/
     summary/
   report/
   references/
+    variable_definitions.md
+    recoding_rules.md
+    method_and_assumptions.md
 ```

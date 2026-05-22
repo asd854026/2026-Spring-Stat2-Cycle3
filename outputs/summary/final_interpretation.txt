@@ -1,0 +1,10 @@
+
+The current cigarette use proportion was 0.2761 (27.6%) in the Sad/Hopeless: Yes group and 0.1618 (16.2%) in the Sad/Hopeless: No group.
+
+The estimated difference was 0.1143, using p_yes - p_no. This means that the Sad/Hopeless: Yes group had a higher current cigarette use proportion than the Sad/Hopeless: No group.
+
+The 95% confidence interval for the difference was [0.0983, 0.1302]. Since the entire interval is above 0, the result suggests that the Sad/Hopeless: Yes group had a higher current cigarette use proportion.
+
+The two-proportion z-test gave z = 15.0536 and p-value < 0.0001. At alpha = 0.05, we Reject H0. Therefore, there is statistically significant evidence that the current cigarette use proportion differs between the two groups.
+
+This result shows an association, not causation, because the YRBS data are observational survey data.
