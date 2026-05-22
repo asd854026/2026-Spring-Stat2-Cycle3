@@ -1,8 +1,0 @@
-metric,value
-Sad/Hopeless: Yes proportion,0.2761
-Sad/Hopeless: No proportion,0.1618
-Difference in proportions,0.1143
-Standard error for CI,0.0081
-95% CI lower bound,0.0983
-95% CI upper bound,0.1302
-95% CI,"[0.0983, 0.1302]"
