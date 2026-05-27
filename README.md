@@ -13,6 +13,8 @@
 
 Research question: **Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?**
 
+------------------------------------------------------------------------------------------------
+
 Additional EDA: **Do Sad/Hopeless students show stronger clustering of health-risk behaviors?**
 
 Note: In this extension, health-risk behavior clustering refers to students reporting multiple health-risk behaviors at the same time, including current cigarette use, current alcohol use, and current marijuana use.
