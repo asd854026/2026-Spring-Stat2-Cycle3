@@ -15,7 +15,7 @@ Research question: **Is the proportion of current cigarette use different betwee
 
 ------------------------------------------------------------------------------------------------
 
-Additional EDA: **Do students who felt sad or hopeless show stronger clustering of substance-related health-risk behaviors?**
+Additional EDA: **Do Sad/Hopeless students show stronger clustering of substance-related health-risk behaviors?**
 
 Note: In this extension, clustering means that multiple substance-related health-risk behaviors are reported by the same student. The three behaviors are current cigarette use, current alcohol use, and current marijuana use.
 
