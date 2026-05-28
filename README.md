@@ -100,30 +100,3 @@ These additional findings are exploratory and should also be interpreted as asso
 3. `02_EDA_Additional.ipynb` - exploratory EDA for substance-related health-risk behavior clustering using behavior combinations, an UpSet-style combination plot, and a 2+ behaviors summary.
 4. `03_Inference.ipynb` - two-proportion z-test, 95% CI, and inference summary.
 5. `04_Interpretation.ipynb` - final interpretation in context.
-
-## Project Structure
-```text
-2026-Spring-Stat2-Cycle3/
-  README.md
-  data/
-    raw/
-      YRBS_2007.csv
-    processed/
-      yrbs_cycle3_q8_processed_only.csv
-      yrbs_cycle3_health_risk_processed_only.csv
-  notebooks/
-    01_DataCheck.ipynb
-    02_EDA_Main.ipynb
-    02_EDA_Additional.ipynb
-    03_Inference.ipynb
-    04_Interpretation.ipynb
-  outputs/
-    figures/
-    tables/
-    summary/
-  report/
-  references/
-    variable_definitions.md
-    recoding_rules.md
-    method_and_assumptions.md
-```
