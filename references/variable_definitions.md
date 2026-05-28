@@ -1,4 +1,4 @@
-# Variable Definitions - Cycle 3 Question 8
+# Variable Definitions
 
 ## Research Question
 
@@ -73,7 +73,9 @@ A positive difference means the Sad/Hopeless: Yes group has a higher current cig
 
 ## Additional EDA Variables
 
-The additional EDA uses a health-risk behavior count based on current cigarette use, current alcohol use, and current marijuana use.
+The additional EDA examines whether students who felt sad or hopeless show stronger clustering of substance-related health-risk behaviors.
+
+In this project, clustering means that multiple substance-related health-risk behaviors are reported by the same student. The three indicators are current cigarette use, current alcohol use, and current marijuana use.
 
 ### CurrentAlcoholUse
 
@@ -81,6 +83,18 @@ The additional EDA uses a health-risk behavior count based on current cigarette 
 |---|---|
 | Original variable name | `CurrentAlcoholUse` |
 | What it measures | Number of days the student drank alcohol during the past 30 days |
+
+Original valid codes:
+
+| Code | Meaning |
+|---:|---|
+| 1 | 0 days |
+| 2 | 1 or 2 days |
+| 3 | 3 to 5 days |
+| 4 | 6 to 9 days |
+| 5 | 10 to 19 days |
+| 6 | 20 to 29 days |
+| 7 | all 30 days |
 
 Binary recoding:
 
@@ -124,9 +138,36 @@ The value ranges from 0 to 3.
 
 | Count | Meaning |
 |---:|---|
-| 0 | No reported health-risk behaviors |
-| 1 | One reported health-risk behavior |
-| 2 | Two reported health-risk behaviors |
-| 3 | Three reported health-risk behaviors |
+| 0 | No reported substance-related health-risk behaviors |
+| 1 | One reported substance-related health-risk behavior |
+| 2 | Two reported substance-related health-risk behaviors |
+| 3 | Three reported substance-related health-risk behaviors |
 
 The health-risk behavior count is calculated only when all three indicators are valid.
+
+### Behavior combination
+
+`behavior_combination` describes the exact combination of the three behaviors reported by the same student.
+
+Possible categories include:
+
+| Category | Meaning |
+|---|---|
+| `None` | No current cigarette use, no current alcohol use, and no current marijuana use |
+| `Cigarette only` | Current cigarette use only |
+| `Alcohol only` | Current alcohol use only |
+| `Marijuana only` | Current marijuana use only |
+| `Cigarette + Alcohol` | Current cigarette use and current alcohol use |
+| `Cigarette + Marijuana` | Current cigarette use and current marijuana use |
+| `Alcohol + Marijuana` | Current alcohol use and current marijuana use |
+| `All three` | Current cigarette use, current alcohol use, and current marijuana use |
+
+This variable is used for the UpSet-style combination plot in the additional EDA.
+
+### Multiple-risk threshold
+
+The additional EDA also summarizes whether a student reported two or more substance-related health-risk behaviors:
+
+`two_or_more_behaviors = 1 if health_risk_behavior_count >= 2, otherwise 0`
+
+This threshold is used as a simple summary measure of stronger behavior clustering.

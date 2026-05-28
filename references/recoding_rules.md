@@ -1,4 +1,4 @@
-# Recoding Rules - Cycle 3 Question 8
+# Recoding Rules
 
 ## Main Analysis Variables
 
@@ -124,3 +124,34 @@ Rows are included in the additional EDA only if `sad_binary` and all three healt
 The processed-only dataset for the additional EDA is saved as:
 
 `data/processed/yrbs_cycle3_health_risk_processed_only.csv`
+
+## Behavior Combination Recoding
+
+For the UpSet-style combination plot, `behavior_combination` is created from the three binary indicators:
+
+- `smoker_binary`
+- `alcohol_binary`
+- `marijuana_binary`
+
+The combination categories are:
+
+| Binary pattern | Combination label |
+|---|---|
+| 0, 0, 0 | `None` |
+| 1, 0, 0 | `Cigarette only` |
+| 0, 1, 0 | `Alcohol only` |
+| 0, 0, 1 | `Marijuana only` |
+| 1, 1, 0 | `Cigarette + Alcohol` |
+| 1, 0, 1 | `Cigarette + Marijuana` |
+| 0, 1, 1 | `Alcohol + Marijuana` |
+| 1, 1, 1 | `All three` |
+
+This recoding is used only for exploratory analysis of behavior clustering, not for the main two-proportion z-test.
+
+## Multiple-risk Threshold
+
+A threshold variable is also created for a simple clustering summary:
+
+`two_or_more_behaviors = 1 if health_risk_behavior_count >= 2, otherwise 0`
+
+This helps summarize how many students reported multiple substance-related health-risk behaviors.

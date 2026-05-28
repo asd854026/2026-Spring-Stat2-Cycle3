@@ -61,8 +61,40 @@ The current cigarette use proportion was higher in the Sad/Hopeless: Yes group t
 
 This provides statistically significant evidence that the current cigarette use proportion differs between the two groups.
 
+## Main EDA Method Note
+
+The main EDA supports the inference question using three descriptive visualizations:
+
+1. A proportion gap plot comparing `p_yes` and `p_no`.
+2. A 100% stacked bar chart showing binary smoking status distribution in each Sad/Hopeless group.
+3. A smokers-only frequency difference plot showing how Light, Moderate, and Frequent smoking differ between groups among current smokers.
+
+These EDA figures are descriptive. The formal inference is conducted in the two-proportion z-test.
+
 ## Additional EDA Note
 
-The additional health-risk behavior count analysis is exploratory. It examines whether students who felt sad or hopeless tended to report more health-risk behaviors overall, including current cigarette use, current alcohol use, and current marijuana use.
+The additional EDA examines **substance-related health-risk behavior clustering**. In this context, clustering means that multiple behaviors are reported by the same student.
 
-This additional EDA is not the main two-sample inference test and should also be interpreted as association, not causation.
+The three behaviors are:
+
+- current cigarette use
+- current alcohol use
+- current marijuana use
+
+The additional EDA uses:
+
+1. `health_risk_behavior_count`, ranging from 0 to 3.
+2. `behavior_combination`, which identifies the exact behavior combination, such as `Alcohol only`, `Cigarette + Alcohol`, or `All three`.
+3. An UpSet-style combination plot to display how substance-related health-risk behaviors cluster together.
+4. A 2+ behaviors threshold summary to highlight multiple-risk behavior clustering.
+
+This additional EDA is exploratory and is not the main two-sample inference test. It should also be interpreted as association, not causation.
+
+## Additional EDA Numerical Highlights
+
+| Result | Sad/Hopeless: Yes | Sad/Hopeless: No |
+|---|---:|---:|
+| Mean health-risk behavior count | 1.09 | 0.72 |
+| Two or more behaviors | 32.8% | 20.0% |
+| All three behaviors | 15.6% | 8.1% |
+| No substance-related behaviors | 39.3% | 56.3% |
