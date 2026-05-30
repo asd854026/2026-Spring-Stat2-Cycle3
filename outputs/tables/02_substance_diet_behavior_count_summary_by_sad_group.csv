@@ -1,0 +1,3 @@
+sad_binary,sad_group,n,mean_substance_risk_count,mean_healthy_diet_count,pct_2plus_substance_risks,pct_2plus_healthy_diet_behaviors
+1,Sad/Hopeless: Yes,3325,1.1058646616541354,0.6081203007518797,33.53383458646616,17.44360902255639
+0,Sad/Hopeless: No,8194,0.727483524530144,0.5903099829143276,20.453990724920672,16.04832804491091

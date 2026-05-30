@@ -1,173 +1,153 @@
 # Variable Definitions
 
-## Research Question
+## Main Research Question
 
-Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?
+### `SadOrHopeless`
+Original group variable for Question 8.
 
-## Main Group Variable: SadOrHopeless
+It identifies whether a student reported feeling sad or hopeless for two or more weeks in a row during the past 12 months.
 
-| Item | Definition |
-|---|---|
-| Original variable name | `SadOrHopeless` |
-| Role | Group variable / explanatory grouping variable |
-| Group 1 | Students who felt sad or hopeless |
-| Group 0 | Students who did not feel sad or hopeless |
+Recoded variable:
+- `sad_binary = 1`: felt sad or hopeless
+- `sad_binary = 0`: did not feel sad or hopeless
 
-### Recoded variables
+Group labels:
+- `Sad/Hopeless: Yes`
+- `Sad/Hopeless: No`
 
-| Recoded variable | Definition |
-|---|---|
-| `sad_binary` | 1 = felt sad or hopeless, 0 = did not feel sad or hopeless |
-| `sad_group` | Group label for Sad/Hopeless Yes or No |
+### `CurrentCigaretteUse`
+Original response variable for Question 8.
 
-## Main Response Variable: CurrentCigaretteUse
+It measures the number of days the student smoked cigarettes during the past 30 days.
 
-| Item | Definition |
-|---|---|
-| Original variable name | `CurrentCigaretteUse` |
-| Role | Main response variable |
-| What it measures | Number of days the student smoked cigarettes during the past 30 days |
+Recoded variable:
+- `smoker_binary = 1`: smoked cigarettes on at least 1 day in the past 30 days
+- `smoker_binary = 0`: smoked cigarettes on 0 days in the past 30 days
 
-### Original valid codes
+### `smoking_freq_group`
+EDA-only grouped version of `CurrentCigaretteUse`.
 
-| Code | Meaning |
-|---:|---|
-| 1 | 0 days |
-| 2 | 1 or 2 days |
-| 3 | 3 to 5 days |
-| 4 | 6 to 9 days |
-| 5 | 10 to 19 days |
-| 6 | 20 to 29 days |
-| 7 | all 30 days |
+- `Non-smoker (0 days)`
+- `Light (1~5 days)`
+- `Moderate (6~19 days)`
+- `Frequent (20~30 days)`
 
-### Main binary recoding for inference
+This variable is used only for descriptive visualization, not for the main two-proportion z-test.
 
-| Original code | Recoded value |
-|---|---|
-| 1 | `smoker_binary = 0`, no current cigarette use |
-| 2-7 | `smoker_binary = 1`, current cigarette use |
-
-### Grouped version for EDA
-
-| Original code | Group |
-|---|---|
-| 1 | Non-smoker (0 days) |
-| 2-3 | Light (1~5 days) |
-| 4-5 | Moderate (6~19 days) |
-| 6-7 | Frequent (20~30 days) |
-
-The grouped version is used only for exploratory EDA. The main two-sample inference uses the binary response `smoker_binary`.
-
-## Difference Definition
-
-The estimated difference is defined as:
-
-`p_yes - p_no`
-
-where:
-
-- `p_yes` = current cigarette use proportion in the Sad/Hopeless: Yes group
-- `p_no` = current cigarette use proportion in the Sad/Hopeless: No group
-
-A positive difference means the Sad/Hopeless: Yes group has a higher current cigarette use proportion.
+---
 
 ## Additional EDA Variables
+The additional EDA compares two behavior domains:
 
-The additional EDA examines whether students who felt sad or hopeless show stronger clustering of substance-related health-risk behaviors.
+1. substance-related risk behaviors
+2. healthy diet behaviors
 
-In this project, clustering means that multiple substance-related health-risk behaviors are reported by the same student. The three indicators are current cigarette use, current alcohol use, and current marijuana use.
+The purpose is exploratory and separate from the main Question 8 inference test.
 
-### CurrentAlcoholUse
+## Substance-related Risk Behavior Variables
 
-| Item | Definition |
-|---|---|
-| Original variable name | `CurrentAlcoholUse` |
-| What it measures | Number of days the student drank alcohol during the past 30 days |
+### `CurrentCigaretteUse`
+Used again as one of the three substance-related risk behavior indicators.
 
-Original valid codes:
+Derived variable:
+- `smoker_binary = 1`: current cigarette use
+- `smoker_binary = 0`: no current cigarette use
 
-| Code | Meaning |
-|---:|---|
-| 1 | 0 days |
-| 2 | 1 or 2 days |
-| 3 | 3 to 5 days |
-| 4 | 6 to 9 days |
-| 5 | 10 to 19 days |
-| 6 | 20 to 29 days |
-| 7 | all 30 days |
+### `CurrentAlcoholUse`
+Measures the number of days the student drank alcohol during the past 30 days.
 
-Binary recoding:
+Derived variable:
+- `alcohol_binary = 1`: current alcohol use
+- `alcohol_binary = 0`: no current alcohol use
 
-| Original code | Recoded value |
-|---|---|
-| 1 | `alcohol_binary = 0`, no current alcohol use |
-| 2-7 | `alcohol_binary = 1`, current alcohol use |
+### `CurrentMarijuaUse`
+Measures the number of times the student used marijuana during the past 30 days.
 
-### CurrentMarijuaUse
+Derived variable:
+- `marijuana_binary = 1`: current marijuana use
+- `marijuana_binary = 0`: no current marijuana use
 
-| Item | Definition |
-|---|---|
-| Original variable name | `CurrentMarijuaUse` |
-| What it measures | Number of times the student used marijuana during the past 30 days |
+### `substance_risk_count`
+A count of the three substance-related risk behavior indicators:
 
-Original valid codes:
+`substance_risk_count = smoker_binary + alcohol_binary + marijuana_binary`
 
-| Code | Meaning |
-|---:|---|
-| 1 | 0 times |
-| 2 | 1 or 2 times |
-| 3 | 3 to 9 times |
-| 4 | 10 to 19 times |
-| 5 | 20 to 39 times |
-| 6 | 40 or more times |
+Possible values:
+- `0`: none of the three substance-related risk behaviors
+- `1`: one behavior
+- `2`: two behaviors
+- `3`: all three behaviors
 
-Binary recoding:
+This count is calculated only when all three substance-related indicators are valid.
 
-| Original code | Recoded value |
-|---|---|
-| 1 | `marijuana_binary = 0`, no current marijuana use |
-| 2-6 | `marijuana_binary = 1`, current marijuana use |
+### `substance_behavior_combination`
+This variable describes which substance-related behaviors were reported together by the same student.
 
-### Health-risk behavior count
+Examples:
+- `None`
+- `Alcohol only`
+- `Cigarette only`
+- `Marijuana only`
+- `Cigarette + Alcohol`
+- `Cigarette + Marijuana`
+- `Alcohol + Marijuana`
+- `All three`
 
-The health-risk behavior count is calculated as:
+This variable is used for the UpSet-style combination plot.
 
-`health_risk_behavior_count = smoker_binary + alcohol_binary + marijuana_binary`
+---
 
-The value ranges from 0 to 3.
+## Healthy Diet Behavior Variables
 
-| Count | Meaning |
-|---:|---|
-| 0 | No reported substance-related health-risk behaviors |
-| 1 | One reported substance-related health-risk behavior |
-| 2 | Two reported substance-related health-risk behaviors |
-| 3 | Three reported substance-related health-risk behaviors |
+### `FruitEating`
+Measures how often the student ate fruit during the past 7 days.
 
-The health-risk behavior count is calculated only when all three indicators are valid.
+Derived variable:
+- `fruit_daily_binary = 1`: ate fruit at least 1 time per day
+- `fruit_daily_binary = 0`: ate fruit less than daily
 
-### Behavior combination
+### `GreenSaladEating`
+Measures how often the student ate green salad during the past 7 days.
 
-`behavior_combination` describes the exact combination of the three behaviors reported by the same student.
+Derived variable:
+- `green_salad_daily_binary = 1`: ate green salad at least 1 time per day
+- `green_salad_daily_binary = 0`: ate green salad less than daily
 
-Possible categories include:
+### `OtherVegetableEating`
+Measures how often the student ate other vegetables during the past 7 days.
 
-| Category | Meaning |
-|---|---|
-| `None` | No current cigarette use, no current alcohol use, and no current marijuana use |
-| `Cigarette only` | Current cigarette use only |
-| `Alcohol only` | Current alcohol use only |
-| `Marijuana only` | Current marijuana use only |
-| `Cigarette + Alcohol` | Current cigarette use and current alcohol use |
-| `Cigarette + Marijuana` | Current cigarette use and current marijuana use |
-| `Alcohol + Marijuana` | Current alcohol use and current marijuana use |
-| `All three` | Current cigarette use, current alcohol use, and current marijuana use |
+Derived variable:
+- `other_vegetable_daily_binary = 1`: ate other vegetables at least 1 time per day
+- `other_vegetable_daily_binary = 0`: ate other vegetables less than daily
 
-This variable is used for the UpSet-style combination plot in the additional EDA.
+### `healthy_diet_count`
+A count of the three healthy diet indicators:
 
-### Multiple-risk threshold
+`healthy_diet_count = fruit_daily_binary + green_salad_daily_binary + other_vegetable_daily_binary`
 
-The additional EDA also summarizes whether a student reported two or more substance-related health-risk behaviors:
+Possible values:
+- `0`: none of the three daily healthy diet behaviors
+- `1`: one daily healthy diet behavior
+- `2`: two daily healthy diet behaviors
+- `3`: all three daily healthy diet behaviors
 
-`two_or_more_behaviors = 1 if health_risk_behavior_count >= 2, otherwise 0`
+This count is calculated only when all three healthy diet indicators are valid.
 
-This threshold is used as a simple summary measure of stronger behavior clustering.
+### `healthy_diet_combination`
+This variable describes which healthy diet behaviors were reported together by the same student.
+
+In the plot, shorter labels are used for readability:
+- `Salad` = daily green salad eating
+- `Vegetables` = daily other vegetable eating
+
+Examples:
+- `None`
+- `Fruit only`
+- `Salad only`
+- `Vegetables only`
+- `Fruit + Salad`
+- `Fruit + Vegetables`
+- `Salad + Vegetables`
+- `All three`
+
+This variable is used for the UpSet-style healthy diet combination plot.
