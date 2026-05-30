@@ -1,0 +1,6 @@
+smoking_freq_group,count
+Non-smoker (0 days),10734
+Light (1~5 days),1128
+Moderate (6~19 days),545
+Frequent (20~30 days),916
+Missing,718

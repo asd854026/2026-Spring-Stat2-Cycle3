@@ -1,0 +1,6 @@
+PDF assumption question,answer,evidence / explanation
+Are the two groups independent?,"Yes, reasonable",The Sad/Hopeless: Yes and Sad/Hopeless: No groups are mutually exclusive groups of student survey responses.
+Is the response variable appropriate for the selected method?,Yes,"The response variable is smoker_binary, coded as 1 = current cigarette use and 0 = no current cigarette use, so a two-proportion z-test is appropriate."
+Are sample sizes large enough?,Yes,"Yes group: successes = 1064, failures = 2790; No group: successes = 1508, failures = 7812. All counts are greater than 30."
+Are there extreme outliers for quantitative variables?,Not applicable,"This project uses a binary response variable, not a quantitative response variable, so outliers are not relevant."
+Is equal variance assumed or not?,Not applicable,"Equal variance is not assumed because this project uses a two-proportion z-test, not a two-sample t-test."
