@@ -52,7 +52,7 @@ The two groups are:
 - `0` = no current cigarette use
 
 ### 3. Large sample size
-Both groups have large enough sample sizes, and the expected success and failure counts are sufficiently large for a two-proportion z-test.
+Yes group: successes = 1,064, failures = 2,790; No group: successes = 1,508, failures = 7,812. All counts are greater than 30.
 
 ### 4. Missing and invalid values
 Rows with missing or invalid values in the group or response variable are excluded from the main analysis.
@@ -78,14 +78,14 @@ The additional EDA is exploratory and separate from the main two-proportion infe
 It compares two behavior domains:
 
 1. **Substance-related risk behavior clustering**
-   - current cigarette use
-   - current alcohol use
-   - current marijuana use
+   - CurrentCigaretteUse
+   - CurrentAlcoholUse
+   - CurrentMarijuaUse
 
 2. **Healthy diet behavior clustering**
-   - daily fruit eating
-   - daily green salad eating
-   - daily other vegetable eating
+   - FruitEating
+   - GreenSaladEating
+   - OtherVegetableEating
 
 In this context, **clustering** means that multiple behaviors in the same domain are reported by the same student.
 
