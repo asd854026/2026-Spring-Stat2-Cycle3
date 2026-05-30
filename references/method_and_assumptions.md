@@ -1,93 +1,156 @@
 # Method and Assumptions
 
-## Main Research Question
-Question 8 asks whether the proportion of current cigarette use is different between students who felt sad or hopeless and those who did not.
+## Selected Research Question
 
-Because the response variable is binary, the main analysis uses a **two-proportion z-test** and a **95% confidence interval for the difference in proportions**.
+**Question 8: Sad or Hopeless Feeling and Current Cigarette Use**
 
-## Parameter Definitions
-Let:
+Research question:
 
-- `p_yes` = the true proportion of current cigarette use among students who felt sad or hopeless
-- `p_no` = the true proportion of current cigarette use among students who did not feel sad or hopeless
+**Is the proportion of current cigarette use different between students who felt sad or hopeless and those who did not?**
 
-The estimated difference is:
+## Selected Method
+
+This project uses a **two-proportion z-test** because the response variable, current cigarette use, is recoded as a binary variable.
+
+- Group variable: `sad_binary`
+- Response variable: `smoker_binary`
+- Method: two-proportion z-test
+- Significance level: `alpha = 0.05`
+- Test type: two-sided test
+
+The difference is defined as:
 
 `p_yes - p_no`
 
+where:
+
+- `p_yes` = current cigarette use proportion among students who felt sad or hopeless
+- `p_no` = current cigarette use proportion among students who did not feel sad or hopeless
+
+A positive difference means that the Sad/Hopeless: Yes group has a higher current cigarette use proportion.
+
 ## Hypotheses
 
-- Null hypothesis: `H0: p_yes - p_no = 0`
-- Alternative hypothesis: `H1: p_yes - p_no != 0`
+- `H0: p_yes = p_no`
+- `H1: p_yes != p_no`
 
-The test is two-sided with significance level `alpha = 0.05`.
-
-## Method Choice
-A two-proportion z-test is appropriate because:
-
-1. the group variable has two groups: Sad/Hopeless Yes and Sad/Hopeless No;
-2. the response variable is binary: current cigarette use vs no current cigarette use;
-3. the sample sizes are large enough for the normal approximation.
+The null hypothesis states that the two groups have the same current cigarette use proportion.  
+The alternative hypothesis states that the two groups have different current cigarette use proportions.
 
 ## Confidence Interval
-A 95% confidence interval is calculated for the difference in current cigarette use proportions.
 
-The confidence interval uses the separate sample proportions from the two groups.
+A 95% confidence interval is calculated for the difference in proportions:
+
+`p_hat_yes - p_hat_no`
+
+The confidence interval uses the standard error based on the two separate sample proportions.  
+This interval is used to estimate the plausible range of the difference between the two group proportions.
 
 ## Hypothesis Test
-For the two-proportion z-test, the pooled proportion is used when calculating the standard error under the null hypothesis.
+
+The two-proportion z-test uses the **pooled proportion** when calculating the standard error under the null hypothesis.
+
+In this analysis:
+
+- Pooled proportion = `0.1952`
+- Test statistic: `z = 15.0536`
+- p-value: `< 0.0001`
 
 ## Assumptions Considered
 
-### 1. Two groups are clearly defined
-The two groups are:
+### 1. Are the two groups independent?
 
-- students who felt sad or hopeless
-- students who did not feel sad or hopeless
+**Answer:** Yes, reasonable.
 
-### 2. Binary response variable
-`CurrentCigaretteUse` is recoded into a binary response:
+The two groups are mutually exclusive: students are classified as either Sad/Hopeless: Yes or Sad/Hopeless: No. Each row represents one student survey response.
+
+### 2. Is the response variable appropriate for the selected method?
+
+**Answer:** Yes.
+
+The response variable is `smoker_binary`, coded as:
 
 - `1` = current cigarette use
 - `0` = no current cigarette use
 
-### 3. Large sample size
-Yes group: successes = 1,064, failures = 2,790; No group: successes = 1,508, failures = 7,812. All counts are greater than 30.
+Because the response variable is binary, a two-proportion z-test is appropriate.
 
-### 4. Missing and invalid values
-Rows with missing or invalid values in the group or response variable are excluded from the main analysis.
+### 3. Are sample sizes large enough?
 
-### 5. Observational data
+**Answer:** Yes.
+
+The success and failure counts are large enough for the normal approximation used in the two-proportion z-test.
+
+- Sad/Hopeless: Yes group: successes = `1,064`, failures = `2,790`
+- Sad/Hopeless: No group: successes = `1,508`, failures = `7,812`
+
+All success and failure counts are greater than 10.
+
+### 4. Are there extreme outliers for quantitative variables?
+
+**Answer:** Not applicable.
+
+This project uses a binary response variable, not a quantitative response variable. Therefore, extreme outliers are not relevant for the main two-proportion analysis.
+
+### 5. Is equal variance assumed or not?
+
+**Answer:** Not applicable.
+
+Equal variance is not assumed because this project uses a two-proportion z-test, not a two-sample t-test.
+
+### 6. Missing and invalid values
+
+Rows with missing or invalid values in `SadOrHopeless` or `CurrentCigaretteUse` are excluded from the main analysis.
+
+The final valid sample size for the main Q8 analysis is:
+
+- `n = 13,174`
+
+### 7. Observational data caution
+
 The YRBS data are observational survey data. Therefore, the result should be interpreted as an association, not as evidence of causation.
 
 ## Main Numerical Result
-The main inference result is:
 
-- `p_yes = 0.2761`
-- `p_no = 0.1618`
-- estimated difference = `0.1143`
+- `n_yes = 3,854`
+- `x_yes = 1,064`
+- `p_hat_yes = 0.2761`
+
+- `n_no = 9,320`
+- `x_no = 1,508`
+- `p_hat_no = 0.1618`
+
+- Difference = `0.1143`
 - 95% CI = `[0.0983, 0.1302]`
 - z statistic = `15.0536`
-- p-value `< 0.0001`
+- p-value = `< 0.0001`
+- Decision at `alpha = 0.05`: Reject `H0`
 
-At `alpha = 0.05`, the null hypothesis is rejected.
+## Main Interpretation
+
+The current cigarette use proportion was higher in the Sad/Hopeless: Yes group than in the Sad/Hopeless: No group.
+
+The estimated difference was `0.1143`, meaning that the Sad/Hopeless: Yes group had about an **11.43 percentage-point higher** current cigarette use proportion than the Sad/Hopeless: No group.
+
+The 95% confidence interval `[0.0983, 0.1302]` is entirely above 0, and the p-value is less than 0.0001. Therefore, there is statistically significant evidence that the current cigarette use proportion differs between the two groups.
+
+This result shows an association between Sad/Hopeless status and current cigarette use, but it does not prove causation.
 
 ## Additional EDA Note
-The additional EDA is exploratory and separate from the main two-proportion inference test.
+
+The additional EDA is exploratory and is not part of the main two-proportion inference test.
 
 It compares two behavior domains:
 
-1. **Substance-related risk behavior clustering**
-   - CurrentCigaretteUse
-   - CurrentAlcoholUse
-   - CurrentMarijuaUse
+1. **Substance-related risk behaviors**
+   - current cigarette use
+   - current alcohol use
+   - current marijuana use
 
-2. **Healthy diet behavior clustering**
-   - FruitEating
-   - GreenSaladEating
-   - OtherVegetableEating
-
-In this context, **clustering** means that multiple behaviors in the same domain are reported by the same student.
+2. **Healthy diet behaviors**
+   - daily fruit eating
+   - daily green salad eating
+   - daily other vegetable eating
 
 The additional EDA uses:
 
@@ -96,6 +159,11 @@ The additional EDA uses:
 - `substance_behavior_combination`
 - `healthy_diet_combination`
 
-The UpSet-style combination plots are used to show which behaviors appear together within each domain. The summary profile plot compares the percentage of students reporting Sad/Hopeless across behavior count levels from 0 to 3.
+The goal is to describe whether students who felt sad or hopeless show different clustering patterns between substance-related risk behaviors and healthy diet behaviors.
 
-These additional EDA results should be interpreted as descriptive associations only. They do not replace the main Question 8 inference result and should not be interpreted as causal evidence.
+In the healthy diet UpSet-style plot:
+
+- `Salad` refers to daily green salad eating.
+- `Vegetables` refers to daily other vegetable eating.
+
+Because this additional EDA is exploratory and based on observational survey data, it should also be interpreted as association, not causation.
