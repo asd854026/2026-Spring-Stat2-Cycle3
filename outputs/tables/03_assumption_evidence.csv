@@ -1,0 +1,6 @@
+assumption,evidence / explanation
+Independence,The Sad/Hopeless: Yes and Sad/Hopeless: No groups are mutually exclusive groups of student survey responses.
+Response variable,"The response variable is smoker_binary, coded as 1 = current cigarette use and 0 = no current cigarette use, so a two-proportion z-test is appropriate."
+Sample size,"Yes group: successes = 1064, failures = 2790; No group: successes = 1508, failures = 7812. All counts are greater than 10."
+Outliers,"This project uses a binary response variable, not a quantitative response variable, so outliers are not relevant."
+Equal variance,"Equal variance is not assumed because this project uses a two-proportion z-test, not a two-sample t-test."
