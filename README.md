@@ -1,5 +1,8 @@
 # Project Cycle 3 - Two-Sample Inference
 
+## Video Link
+- https://youtu.be/HBRwdPVmvFI
+
 ## Group Information
 - Group number: 27
 - Member names: 112370216蘇榮盛, 111370138吳丞宥
