@@ -6,8 +6,6 @@ https://github.com/asd854026/2026-Spring-Stat2-Cycle3
 ## Presentation Video
 https://youtu.be/HBRwdPVmvFI
 
-[Add video link here]
-
 ## Group Information
 - Group number: 27
 - Member names: 112370216蘇榮盛, 111370138吳丞宥
