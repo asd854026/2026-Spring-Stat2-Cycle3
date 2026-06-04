@@ -39,6 +39,7 @@ A grouped version of `CurrentCigaretteUse` is also created for exploratory visua
 - codes 6-7 = Frequent (20-30 days)
 
 ## Method
+
 Because the main response variable is binary, this project uses a **two-proportion z-test** and a **95% confidence interval for the difference in proportions**.
 
 The difference is defined as:
@@ -46,8 +47,17 @@ The difference is defined as:
 `p_yes - p_no`
 
 where:
+
 - `p_yes` = current cigarette use proportion among students who felt sad or hopeless
 - `p_no` = current cigarette use proportion among students who did not feel sad or hopeless
+
+The hypotheses are:
+
+- **H₀:** `p_yes - p_no = 0`
+- **H₁:** `p_yes - p_no ≠ 0`
+
+The null hypothesis means that the two groups have the same current cigarette use proportion.  
+The alternative hypothesis means that the two groups have different current cigarette use proportions.
 
 ## Main Result
 - Valid analysis sample size: **13,174**
